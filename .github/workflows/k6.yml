@@ -1,0 +1,46 @@
+name: k6 Performance
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '15 7 * * *'   # daily 07:15 UTC, after the other suites
+
+permissions:
+  contents: write
+
+jobs:
+  perf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Run k6 performance smoke
+        run: k6 run scripts/smoke.js
+
+      - name: Upload summary artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-summary
+          path: |
+            summary.txt
+            status.json
+          if-no-files-found: ignore
+
+      - name: Publish status.json (rebase + retry)
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add status.json summary.txt 2>/dev/null || true
+          git commit -m "chore: update k6 status [skip ci]" || { echo "no changes"; exit 0; }
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push origin HEAD:main && exit 0
+            sleep $(( (RANDOM % 5) + 2 ))
+          done
+          echo "push failed after retries" && exit 1
