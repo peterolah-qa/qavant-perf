@@ -1,0 +1,23 @@
+     ✓ homepage status is 200
+     ✓ homepage serves real content
+     ✓ homepage under 1s
+     ✓ ui status.json available
+     ✓ api status.json available
+
+   ✓ checks.........................: 100.00% ✓ 675       ✗ 0  
+     data_received..................: 32 MB   1.0 MB/s
+     data_sent......................: 114 kB  3.7 kB/s
+     http_req_blocked...............: avg=1.63ms   min=200ns   med=341ns   max=127.42ms p(90)=537ns   p(95)=721ns  
+     http_req_connecting............: avg=56.39µs  min=0s      med=0s      max=6.39ms   p(90)=0s      p(95)=0s     
+   ✓ http_req_duration..............: avg=39.35ms  min=1.56ms  med=2.14ms  max=611.42ms p(90)=90.38ms p(95)=93.82ms
+       { expected_response:true }...: avg=39.35ms  min=1.56ms  med=2.14ms  max=611.42ms p(90)=90.38ms p(95)=93.82ms
+   ✓ http_req_failed................: 0.00%   ✓ 0         ✗ 405
+     http_req_receiving.............: avg=22.74ms  min=15.53µs med=45.21µs max=72.56ms  p(90)=68.38ms p(95)=68.67ms
+     http_req_sending...............: avg=44.3µs   min=19.87µs med=35.62µs max=241.46µs p(90)=77.8µs  p(95)=86.87µs
+     http_req_tls_handshaking.......: avg=983.91µs min=0s      med=0s      max=77.86ms  p(90)=0s      p(95)=0s     
+     http_req_waiting...............: avg=16.56ms  min=1.47ms  med=2.08ms  max=542.88ms p(90)=22.38ms p(95)=31.6ms 
+     http_reqs......................: 405     13.333283/s
+     iteration_duration.............: avg=1.12s    min=1.09s   med=1.09s   max=1.86s    p(90)=1.1s    p(95)=1.11s  
+     iterations.....................: 135     4.444428/s
+     vus............................: 5       min=5       max=5
+     vus_max........................: 5       min=5       max=5
