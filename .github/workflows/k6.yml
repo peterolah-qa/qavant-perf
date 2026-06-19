@@ -1,11 +1,17 @@
 name: k6 Performance
 
 on:
+  # Only re-run when the perf suite itself changes — not on every content push.
+  # Performance of a static CDN site doesn't change with a copy edit, so
+  # hammering it on every commit would be noise, not signal.
   push:
     branches: [ main ]
-  workflow_dispatch:
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/k6.yml'
+  workflow_dispatch:          # run on demand, anytime
   schedule:
-    - cron: '15 7 * * *'   # daily 07:15 UTC, after the other suites
+    - cron: '15 7 * * 1'      # weekly, Monday 07:15 UTC — enough for a CDN-backed site
 
 permissions:
   contents: write
