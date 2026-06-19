@@ -1,8 +1,8 @@
 {
-  "passed": 675,
-  "total": 675,
-  "passRate": 100,
-  "p95_ms": 94,
-  "errorRate": 0,
-  "lastRun": "2026-06-16T11:29:48.246Z"
+  "passed": 396,
+  "total": 400,
+  "passRate": 99,
+  "p95_ms": 76,
+  "errorRate": 0.0083,
+  "lastRun": "2026-06-18T11:17:07.049Z"
 }
