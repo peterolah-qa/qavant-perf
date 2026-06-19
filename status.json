@@ -2,7 +2,7 @@
   "passed": 396,
   "total": 400,
   "passRate": 99,
-  "p95_ms": 76,
+  "p95_ms": 90,
   "errorRate": 0.0083,
-  "lastRun": "2026-06-18T11:17:07.049Z"
+  "lastRun": "2026-06-19T06:57:48.275Z"
 }
