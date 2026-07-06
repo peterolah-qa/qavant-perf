@@ -2,8 +2,8 @@
   "passed": 295,
   "total": 295,
   "passRate": 100,
-  "p95_ms": 24,
+  "p95_ms": 62,
   "errorRate": 0,
   "loadTarget": "https://test.k6.io",
-  "lastRun": "2026-06-29T12:08:01.833Z"
+  "lastRun": "2026-07-06T11:43:34.985Z"
 }
